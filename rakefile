@@ -1,8 +1,16 @@
-require "pry"
 $LOAD_PATH.unshift(File.expand_path('../.', __FILE__))
+require 'pry'
+require 'install'
 
 task :install do
-
   puts 'Runing simple install...'
-  require 'install'
+  binding.pry
+end
+
+task :backup do
+  Backup
+end
+
+task :clear_backup do
+
 end

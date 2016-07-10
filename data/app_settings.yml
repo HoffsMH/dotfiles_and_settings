@@ -1,4 +1,4 @@
 iterm2:
   name: "com.googlecode.iterm2.plist"
   source: "data/app_settings/plist/"
-  destination: "~/Desktop"
+  destination: "~/Desktop/"
