@@ -1,0 +1,8 @@
+require "pry"
+$LOAD_PATH.unshift(File.expand_path('../.', __FILE__))
+
+task :install do
+
+  puts 'Runing simple install...'
+  require 'install'
+end
