@@ -2,15 +2,52 @@ $LOAD_PATH.unshift(File.expand_path('../.', __FILE__))
 require 'pry'
 require 'install'
 
-task :install do
-  puts 'Runing simple install...'
-  binding.pry
+namespace :install do
+  task :default do
+    Rake::Task["install:scripts"].invoke
+    Rake::Task["install:app_settings"].invoke
+  end
+
+  task :scripts do
+    puts 'Running scripts install...'
+    scripts_manifest = YAML.load_file("data/scripts.yml")
+    Install.install_all(scripts_manifest)
+  end
+
+  task :app_settings do
+    puts 'Running app_settings install...'
+    app_settings_manifest = YAML.load_file("data/app_settings.yml")
+    Install.install_all(app_settings_manifest)
+    puts "restarting cfprefsd to uncache settings.."
+    `killall cfprefsd`
+  end
+end
+task :install => 'install:default'
+
+
+
+namespace :backup do
+  task :default do
+    app_settings_manifest = YAML.load_file("data/app_settings.yml")
+    scripts_manifest = YAML.load_file("data/scripts.yml")
+    Backup.backup_all(app_settings_manifest)
+    backup_dir = Backup.backup_all(scripts_manifest)
+    puts "Backed up to:"
+    puts "-----------------------------------"
+    puts backup_dir
+  end
+
+  task :clear do
+    Backup.clear_backup_dir
+  end
+
+  task :restore do
+    app_settings_manifest = YAML.load_file("data/app_settings.yml")
+    scripts_manifest = YAML.load_file("data/scripts.yml")
+    backup_dir = ARGV[1]
+    Backup.restore(backup_dir, app_settings_manifest)
+    Backup.restore(backup_dir, scripts_manifest)
+  end
 end
 
-task :backup do
-  Backup
-end
-
-task :clear_backup do
-
-end
+task :backup => 'backup:default'

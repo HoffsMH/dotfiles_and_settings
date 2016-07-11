@@ -1,4 +1,29 @@
 iterm2:
   name: "com.googlecode.iterm2.plist"
   source: "data/app_settings/plist/"
-  destination: "~/Desktop/"
+  # destination: "~/Desktop/"
+  destination: "~/Library/Preferences/"
+  
+karabiner:
+  name: "private.xml"
+  source: "data/app_settings/xml/"
+  # destination: "~/Desktop/"
+  destination: "~/Library/Application Support/Karabiner/"
+
+zshrc:
+  name: ".zshrc"
+  source: "data/app_settings/dotfiles/"
+  # destination: "~/Desktop/"
+  destination: "~/"
+
+app_settings.sh:
+  name: "app_settings.sh"
+  source: "data/app_settings/dotfiles/.zsh/"
+  # destination: "~/Desktop/"
+  destination: "~/.zsh/"
+
+widgets.sh:
+  name: "widgets.sh"
+  source: "data/app_settings/dotfiles/.zsh/"
+  # destination: "~/Desktop/"
+  destination: "~/.zsh/"

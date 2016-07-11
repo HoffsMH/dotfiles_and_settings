@@ -1,3 +1,5 @@
+## [Link to laptop-setup](https://gist.github.com/b23f5a07bfa2182a9320bb3073ee43cf)
+
 ## List of features I want
 * `rake install` (everything)
 * `rake install:app_settings`

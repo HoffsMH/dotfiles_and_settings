@@ -1,0 +1,4 @@
+myscript:
+  name: "myscript"
+  source: "data/scripts/"
+  destination: "~/Desktop/"

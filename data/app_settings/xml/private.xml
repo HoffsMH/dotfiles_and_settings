@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>F19 to F19</name>
+    <appendix>(F19 to Hyper (ctrl+shift+cmd+opt) + F19 Only, send escape)</appendix>
+    <identifier>private.f192f19_escape</identifier>
+    <autogen>
+      --KeyOverlaidModifier--
+      KeyCode::F19,
+      KeyCode::COMMAND_L,
+      ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L,
+      KeyCode::ESCAPE
+    </autogen>
+    <autogen>__BlockUntilKeyUp__ KeyCode::F19</autogen>
+  </item>
+  <item>
+    <name>HYPER-J to pagedown </name>
+    <appendix>(HYPER-J to pagedown)</appendix>
+    <identifier>private.hyperjtopagedown</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::J, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+      KeyCode::PAGEDOWN
+    </autogen>
+  </item>
+  <item>
+    <name>HYPER-K to pageup </name>
+    <appendix>(HYPER-k to pageup)</appendix>
+    <identifier>private.hyperjtopageup</identifier>
+    <autogen>
+      __KeyToKey__
+      KeyCode::K, ModifierFlag::OPTION_L | ModifierFlag::SHIFT_L | ModifierFlag::CONTROL_L | ModifierFlag::COMMAND_L,
+      KeyCode::PAGEUP
+    </autogen>
+  </item>
+</root>
