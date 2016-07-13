@@ -22,6 +22,10 @@ namespace :install do
     puts "restarting cfprefsd to uncache settings.."
     `killall cfprefsd`
   end
+
+  task :commands do
+    Install::Run.install(["taco"])
+  end
 end
 task :install => 'install:default'
 
